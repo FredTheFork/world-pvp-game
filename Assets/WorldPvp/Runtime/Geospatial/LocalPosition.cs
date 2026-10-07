@@ -28,13 +28,15 @@ namespace WorldPvp.Phase1.Geospatial
         {
             get
             {
-                return IsFinite(eastMeters) &&
-                       IsFinite(upMeters) &&
-                       IsFinite(northMeters);
+                return IsFiniteValue(eastMeters) &&
+                       IsFiniteValue(upMeters) &&
+                       IsFiniteValue(northMeters);
             }
         }
 
-        private static bool IsFinite(double value)
+        // A type cannot contain a property and a method with the same name,
+        // so the per-component test is named separately from the IsFinite property.
+        private static bool IsFiniteValue(double value)
         {
             return !double.IsNaN(value) && !double.IsInfinity(value);
         }

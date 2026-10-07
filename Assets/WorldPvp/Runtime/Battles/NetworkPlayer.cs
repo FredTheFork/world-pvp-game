@@ -7,6 +7,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using WorldPvp.Phase1.Combat;
+using WorldPvp.Phase1.Configuration;
 using WorldPvp.Phase1.Geospatial;
 using WorldPvp.Phase1.Gameplay;
 using WorldPvp.Phase1.Player;

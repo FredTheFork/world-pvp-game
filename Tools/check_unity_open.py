@@ -65,6 +65,9 @@ def main() -> int:
             print("Library/ is absent, so this clone has not been imported by Unity yet.")
             print("Unity Hub → Add project from disk → this root, with editor 6000.3.24f1 and WebGL Build Support.")
         print("Do not create the lock file by hand.")
+        print("For a Package Manager failure (\"Cannot read properties of null (reading 'severity')\",")
+        print("or \"Error fetching package list offline\"), run: python3 Tools/diagnose_unity_packages.py")
+        print("See Documentation/PACKAGE_RESOLUTION_TROUBLESHOOTING.md — the real error is in the Editor log.")
 
     print("Ignored local key files must stay untracked:")
     for name in ("google-tiles-key.local.txt", "google-places-key.local.txt"):
