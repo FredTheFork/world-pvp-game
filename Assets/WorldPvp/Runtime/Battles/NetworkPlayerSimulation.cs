@@ -223,7 +223,8 @@ namespace WorldPvp.Phase1.Battles
     /// <summary>Deterministic fixed-step kinematic simulation shared by prediction and the session host.</summary>
     public static class NetworkPlayerSimulation
     {
-        public const int TickRate = 30;
+        // NGO NetworkConfig.TickRate is uint. An int constant does not implicitly convert and fails to compile.
+        public const uint TickRate = 30;
         public const float TickDeltaSeconds = 1f / TickRate;
         public const float MinimumPitchDegrees = -75f;
         public const float MaximumPitchDegrees = 75f;

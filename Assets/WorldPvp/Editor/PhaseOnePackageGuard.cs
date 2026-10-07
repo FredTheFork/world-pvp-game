@@ -90,12 +90,18 @@ namespace WorldPvp.Phase1.Editor
                 }
             }
 
-            string lockPath = Path.Combine(Application.dataPath, "../Packages/packages-lock.json");
+            string lockPath = Path.GetFullPath(Path.Combine(Application.dataPath, "../Packages/packages-lock.json"));
             if (!File.Exists(lockPath))
             {
                 Debug.LogWarning(
-                    "[Pinned toolchain] Unity has not generated Packages/packages-lock.json yet. " +
-                    "Wait for Package Manager resolution and commit the generated lock file.");
+                    "[Pinned toolchain] Packages/packages-lock.json does not exist yet. " +
+                    "There is no file named packages.lock. Unity writes packages-lock.json only after Package Manager " +
+                    "resolution succeeds. If the Console has a Package Manager error, that error is the blocker — " +
+                    "do not hand-write the lock file. After it appears, commit it from this same project folder.");
+            }
+            else
+            {
+                Debug.Log("[Pinned toolchain] Package lock is present: " + lockPath);
             }
         }
     }
