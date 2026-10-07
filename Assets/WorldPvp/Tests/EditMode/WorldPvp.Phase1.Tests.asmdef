@@ -1,0 +1,24 @@
+{
+  "name": "WorldPvp.Phase1.Tests",
+  "rootNamespace": "WorldPvp.Phase1.Tests",
+  "references": [
+    "WorldPvp.Phase1",
+    "CesiumForUnity",
+    "Unity.Collections",
+    "Unity.Services.Multiplayer"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

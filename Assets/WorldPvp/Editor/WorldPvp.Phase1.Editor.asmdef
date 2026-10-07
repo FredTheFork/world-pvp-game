@@ -1,0 +1,22 @@
+{
+  "name": "WorldPvp.Phase1.Editor",
+  "rootNamespace": "WorldPvp.Phase1.Editor",
+  "references": [
+    "WorldPvp.Phase1",
+    "CesiumForUnity",
+    "Unity.Netcode.Runtime",
+    "Unity.Netcode.Transports.UTP",
+    "Unity.RenderPipelines.Universal.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,50 @@
+# Unity-generated / local-only (at the project root)
+/Library/
+/Temp/
+/Obj/
+/Build/
+/Builds/
+/Logs/
+/UserSettings/
+MemoryCaptures/
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svclog
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Generated package resolution is normally committed after first UPM resolve.
+# Do not ignore Packages/packages-lock.json.
+
+# Secrets and local environment files; commit only explicitly named examples.
+.env
+.env.*
+!.env.example
+!.env.*.example
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+
+# Local Google Maps Platform key; never commit it.
+Assets/WorldPvp/StreamingAssets/google-tiles-key.local.txt
+Assets/WorldPvp/StreamingAssets/google-places-key.local.txt
+
+# Local Supabase CLI state and secrets
+supabase/.temp/
+supabase/.branches/
+supabase/.env
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

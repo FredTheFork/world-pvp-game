@@ -1,0 +1,2 @@
+Paste a local development Google Maps JavaScript + Places API key into google-places-key.local.txt (gitignored).
+Do not paste a real key into this tracked example file.
