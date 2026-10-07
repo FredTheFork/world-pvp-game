@@ -48,3 +48,5 @@ supabase/.env
 # OS/editor noise
 .DS_Store
 Thumbs.db
+__pycache__/
+*.pyc

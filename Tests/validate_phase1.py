@@ -30,7 +30,9 @@ REQUIRED_PATHS = [
     "Packages/manifest.json",
     "ProjectSettings/ProjectVersion.txt",
     "ProjectSettings/ProjectSettings.asset",
+    "Documentation/GETTING_STARTED.md",
     "Documentation/ARCHITECTURE_PHASE2.md",
+    "Tools/check_unity_open.py",
     "Documentation/ARCHITECTURE_PHASE3.md",
     "Documentation/ARCHITECTURE_PHASE4.md",
     "Documentation/ARCHITECTURE_PHASE5.md",
@@ -223,6 +225,8 @@ class ProjectScaffoldTests(unittest.TestCase):
         self.assertIn("BufferRemoteSnapshot", network_player)
         self.assertIn("NetworkPlayerSimulation.Interpolate", network_player)
         self.assertIn("TickRate = NetworkPlayer.ServerSimulationTickRate", builder)
+        self.assertIn("public const uint TickRate = 30", simulation)
+        self.assertIn("public const uint ServerSimulationTickRate", network_player)
         self.assertIn("FirePressed", simulation)
         self.assertNotIn("NetworkGeoPlayer", builder + coordinator + network_player)
         self.assertIn("Content-Encoding", deploy)

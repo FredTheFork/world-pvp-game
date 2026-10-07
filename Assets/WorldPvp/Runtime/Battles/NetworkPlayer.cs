@@ -22,7 +22,7 @@ namespace WorldPvp.Phase1.Battles
     [DisallowMultipleComponent]
     public sealed class NetworkPlayer : NetworkBehaviour
     {
-        public const int ServerSimulationTickRate = NetworkPlayerSimulation.TickRate;
+        public const uint ServerSimulationTickRate = NetworkPlayerSimulation.TickRate;
         public const int MaximumBufferedInputs = 256;
 
         private const int MaximumCatchUpTicksPerFrame = 8;

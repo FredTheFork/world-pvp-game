@@ -1,5 +1,7 @@
 # World PvP — Phase 10 production integration (in progress)
 
+Start with [`Documentation/GETTING_STARTED.md`](Documentation/GETTING_STARTED.md). Unity does not edit GitHub in place: open this clone, and look for `Packages/packages-lock.json` (not `packages.lock`) only after Package Manager resolution succeeds.
+
 Phase 9's virtual arena/gameplay-data layer remains in progress. Phase 10 adds a first Supabase Auth/Postgres + Vercel control-plane slice for accounts, profiles, statistics, match metadata/lifecycle, reconnect tickets, moderation, and rate limits. This is not accepted or production-ready: no Supabase project, Vercel deployment, external dedicated-server allocator, Unity compile/build, or end-to-end account-to-game identity/reconnect flow exists yet. Phase 7 combat remains present, with the existing UGS Relay player-host flow still a prototype. The arena radius is a **virtual game boundary**; no physical visit or reward is required.
 
 > **Verification status:** The Supabase/Vercel control-plane code and Node tests are present, but the migration has not been applied to a real Supabase project and no Vercel deployment or production secrets are configured. The Unity account client has not been compiled or exercised. Phase 9 still has no concrete independent gameplay-data provider. The existing UGS Relay flow remains player-hosted prototype code; backend lifecycle/reconnect/result endpoints are not yet connected to dedicated-server admission and live NGO state. No Unity import/compilation, EditMode run, WebGL/dedicated build, database migration run, Vercel deployment, or browser gameplay acceptance has run. Phase 1–9 and Phase 10 production acceptance remain **NOT RUN**. See [`Tests/PHASE9_ACCEPTANCE.md`](Tests/PHASE9_ACCEPTANCE.md) and [`Tests/PHASE10_ACCEPTANCE.md`](Tests/PHASE10_ACCEPTANCE.md).
@@ -44,7 +46,7 @@ Implementation details: [`Documentation/ARCHITECTURE_PHASE7.md`](Documentation/A
 ## Project setup
 
 1. Open with the pinned Unity **`6000.3.24f1`** editor and install WebGL Build Support.
-2. Resolve the versions in `Packages/manifest.json`. Phases 7–10 make no package upgrades. Let Unity create/update `Packages/packages-lock.json`; none has been fabricated.
+2. Resolve the versions in `Packages/manifest.json`. Phases 7–10 make no package upgrades. Let Unity create/update `Packages/packages-lock.json` (that exact name, not `packages.lock`); none has been fabricated. See [`Documentation/GETTING_STARTED.md`](Documentation/GETTING_STARTED.md).
 3. Fix all import, assembly-definition and C# compilation errors, then run Unity EditMode tests. Neither task has been run here.
 4. Link a Unity Cloud project and configure anonymous Unity Authentication, Multiplayer Services Sessions, and Relay. The session host runs server-side NGO authority in the player client; Relay only routes packets.
 5. Use **Tools → World PvP → Phase 9 → Build or Rebuild Virtual Gameplay Scene** (or the Phase 7/Phase 10 aliases). The builder wires the combat player prefab, gameplay-data/collision layer, virtual arena planner, match and safety HUDs. The local build explicitly enables prototype-only visual-tile fallback; production must assign an approved independent provider. Rebuilding replaces the generated arena scene; back up any custom edits first.
