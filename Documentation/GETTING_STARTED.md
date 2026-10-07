@@ -21,12 +21,13 @@ Do not make a second copy for Unity. Do not point Hub at `Assets`. After Unity g
 
 Unity Version Control (Plastic) is a different history. Do not turn it on for this repository.
 
-This session's fixes are on branch `arena/7621ed10-world-pvp-game`, not necessarily on `main`. In the folder Unity has open:
+The current fixes are on an `arena/...` working branch (check `git branch --show-current`, or the
+branch named on the pull request), not necessarily on `main`. In the folder Unity has open:
 
 ```bash
 git fetch origin
-git checkout arena/7621ed10-world-pvp-game
-git pull origin arena/7621ed10-world-pvp-game
+git checkout <the branch named on the pull request>
+git pull origin <same branch>
 ```
 
 Then return to Unity and let it import. If Unity already has the project open, focus the Editor so it reimports.
@@ -43,6 +44,8 @@ It is not named `packages.lock`, and it is not listed as an asset in the Project
 
 Unity creates that file only after dependency resolution succeeds. Installing the Editor is not enough. Opening the project and waiting for the Package Manager progress bar is the step that creates it. If resolution fails, the file is absent and the Console has a Package Manager error. Do not hand-write the lock file. A fabricated lock will not match registry hashes and will not make a failed download succeed.
 
+If resolution fails — for example the modal says `Failed to resolve packages:` with `Cannot read properties of null (reading 'severity')`, or the window says `Error fetching package list offline` — follow [`PACKAGE_RESOLUTION_TROUBLESHOOTING.md`](PACKAGE_RESOLUTION_TROUBLESHOOTING.md) and run `python3 Tools/diagnose_unity_packages.py` before changing anything. That message is a Package Manager UI crash while reporting the real error; the real error is in the Editor log.
+
 Pinned direct versions are in `Packages/manifest.json`. Cesium comes from `https://unity.pkg.cesium.com`. The Unity packages come from Unity's registry. The Editor needs network access to both on the first resolve. `com.cesium.unity` 1.26.0 is published on that Cesium registry.
 
 After the file appears:
@@ -51,7 +54,7 @@ After the file appears:
 git add Packages/packages-lock.json
 git status
 git commit -m "Lock Unity package resolution"
-git push origin arena/7621ed10-world-pvp-game
+git push origin <the branch you are on>
 ```
 
 Also commit the `.meta` files Unity generates under `Assets/`. Do not commit `Library/`, `Temp/`, `Logs/`, `UserSettings/`, `Build/`, or any real API key.
